@@ -47,8 +47,6 @@ namespace RedePetriSimulacao
 
         private bool AvaliarEnablingFunction(Dictionary<string, Lugar> lugares)
         {
-            // Simplesmente verificando a condição: Passageiro_B >= 5
-            // Adicione mais lógica aqui para lidar com condições mais complexas
             if (EnablingFunction.Contains(">="))
             {
                 var partes = EnablingFunction.Split(new string[] { ">=" }, StringSplitOptions.None);
@@ -92,6 +90,14 @@ namespace RedePetriSimulacao
                     }
 
                     Console.WriteLine($"Transição {Nome} disparada.");
+
+                    // Lógica específica para pouso de avião
+                    if (Nome.StartsWith("Pousar_"))
+                    {
+                        var aviaoDisponivel = Nome.EndsWith("A") ? "Aviao_disponivel_A" : "Aviao_disponivel_B";
+                        lugares[aviaoDisponivel].AdicionarMarcadores(1);
+                        Console.WriteLine($"Avião pousou de {Nome}, {aviaoDisponivel} atualizado.");
+                    }
                 }
             }
         }
