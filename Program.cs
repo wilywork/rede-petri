@@ -18,7 +18,7 @@ namespace RedePetriSimulacao
             RedePetri redePetri = ParserRedePetri.Parse(caminhoArquivoXML);
 
             // Definir o número de iterações para a simulação
-            int iteracoes = 5; // Pode ser lido de uma entrada do usuário
+            int iteracoes = 20;
 
              Console.WriteLine("Iniciando simulação da Rede de Petri...");
             // Simulação
