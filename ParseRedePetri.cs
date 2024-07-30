@@ -11,9 +11,12 @@ namespace RedePetriSimulacao
         {
             XDocument doc = XDocument.Load(caminhoArquivo);
             RedePetri redePetri = new RedePetri();
+            Dictionary<string, string> lugarIds = new Dictionary<string, string>();
+            Dictionary<string, string> transicaoIds = new Dictionary<string, string>();
 
             foreach (var lugarElement in doc.Descendants("place"))
             {
+                string id = lugarElement.Attribute("uuid").Value;
                 string nome = lugarElement.Element("properties").Elements("property")
                                 .FirstOrDefault(p => p.Attribute("id").Value == "0.default.name")
                                 ?.Attribute("name").Value;
@@ -23,49 +26,17 @@ namespace RedePetriSimulacao
 
                 Lugar lugar = new Lugar(nome, marcadores);
                 redePetri.AdicionarLugar(lugar);
+                lugarIds[id] = nome;
             }
 
             foreach (var transicaoElement in doc.Descendants("transition"))
             {
+                string id = transicaoElement.Attribute("uuid").Value;
                 string nome = transicaoElement.Element("properties").Elements("property")
                                 .FirstOrDefault(p => p.Attribute("id").Value == "0.default.name")
                                 ?.Attribute("name").Value;
                 Transicao transicao = new Transicao(nome);
-
-                foreach (var arco in doc.Descendants("arc"))
-                {
-                    string de = arco.Attribute("from").Value;
-                    string para = arco.Attribute("to").Value;
-
-                    if (de == transicaoElement.Attribute("uuid").Value)
-                    {
-                        var nomeLugar = doc.Descendants("place")
-                            .FirstOrDefault(p => p.Attribute("uuid").Value == para)
-                            ?.Element("properties")
-                            .Elements("property")
-                            .FirstOrDefault(pr => pr.Attribute("id").Value == "0.default.name")
-                            ?.Attribute("name").Value;
-
-                        if (nomeLugar != null)
-                        {
-                            transicao.PosCondicoes[nomeLugar] = 1; // Assumindo peso 1 para simplicidade
-                        }
-                    }
-                    else if (para == transicaoElement.Attribute("uuid").Value)
-                    {
-                        var nomeLugar = doc.Descendants("place")
-                            .FirstOrDefault(p => p.Attribute("uuid").Value == de)
-                            ?.Element("properties")
-                            .Elements("property")
-                            .FirstOrDefault(pr => pr.Attribute("id").Value == "0.default.name")
-                            ?.Attribute("name").Value;
-
-                        if (nomeLugar != null)
-                        {
-                            transicao.PreCondicoes[nomeLugar] = 1; // Assumindo peso 1 para simplicidade
-                        }
-                    }
-                }
+                transicaoIds[id] = nome;
 
                 var markingUpdateElement = transicaoElement.Element("properties")
                                 .Elements("property")
@@ -96,6 +67,33 @@ namespace RedePetriSimulacao
                 }
 
                 redePetri.AdicionarTransicao(transicao);
+            }
+
+            foreach (var arco in doc.Descendants("arc"))
+            {
+                string de = arco.Attribute("from").Value;
+                string para = arco.Attribute("to").Value;
+
+                if (transicaoIds.ContainsKey(de) && lugarIds.ContainsKey(para))
+                {
+                    var nomeTransicao = transicaoIds[de];
+                    var nomeLugar = lugarIds[para];
+                    var transicao = redePetri.Transicoes.FirstOrDefault(t => t.Nome == nomeTransicao);
+                    if (transicao != null)
+                    {
+                        transicao.PosCondicoes[nomeLugar] = 1; // Assumindo peso 1 para simplicidade
+                    }
+                }
+                else if (lugarIds.ContainsKey(de) && transicaoIds.ContainsKey(para))
+                {
+                    var nomeTransicao = transicaoIds[para];
+                    var nomeLugar = lugarIds[de];
+                    var transicao = redePetri.Transicoes.FirstOrDefault(t => t.Nome == nomeTransicao);
+                    if (transicao != null)
+                    {
+                        transicao.PreCondicoes[nomeLugar] = 1; // Assumindo peso 1 para simplicidade
+                    }
+                }
             }
 
             return redePetri;

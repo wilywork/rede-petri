@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0FC33DED-7C88-4E06-8EF3-B69A244D3A22}|RedePetriSimulacao.csproj|C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\parseredepetri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FC33DED-7C88-4E06-8EF3-B69A244D3A22}|RedePetriSimulacao.csproj|solutionrelative:parseredepetri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0FC33DED-7C88-4E06-8EF3-B69A244D3A22}|RedePetriSimulacao.csproj|C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\transicao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0FC33DED-7C88-4E06-8EF3-B69A244D3A22}|RedePetriSimulacao.csproj|solutionrelative:transicao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0FC33DED-7C88-4E06-8EF3-B69A244D3A22}|RedePetriSimulacao.csproj|c:\\users\\xandy\\onedrive\\desktop\\trabalho\\rede-petri\\redepetri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0FC33DED-7C88-4E06-8EF3-B69A244D3A22}|RedePetriSimulacao.csproj|solutionrelative:redepetri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0FC33DED-7C88-4E06-8EF3-B69A244D3A22}|RedePetriSimulacao.csproj|C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\parseredepetri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0FC33DED-7C88-4E06-8EF3-B69A244D3A22}|RedePetriSimulacao.csproj|solutionrelative:parseredepetri.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0FC33DED-7C88-4E06-8EF3-B69A244D3A22}|RedePetriSimulacao.csproj|C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\lugar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -64,46 +64,46 @@
               "RelativeDocumentMoniker": "Lugar.cs",
               "ToolTip": "C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\Lugar.cs",
               "RelativeToolTip": "Lugar.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAnAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAUwCEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-30T02:43:27.944Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ParseRedePetri.cs",
               "DocumentMoniker": "C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\ParseRedePetri.cs",
               "RelativeDocumentMoniker": "ParseRedePetri.cs",
               "ToolTip": "C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\ParseRedePetri.cs",
               "RelativeToolTip": "ParseRedePetri.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAQwFMAAABFAAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAmwF0AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-30T00:37:32.344Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "RedePetri.cs",
               "DocumentMoniker": "C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\RedePetri.cs",
               "RelativeDocumentMoniker": "RedePetri.cs",
               "ToolTip": "C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\RedePetri.cs",
               "RelativeToolTip": "RedePetri.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAADwvyQAAAAyAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-30T00:36:57.554Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Transicao.cs",
               "DocumentMoniker": "C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\Transicao.cs",
               "RelativeDocumentMoniker": "Transicao.cs",
               "ToolTip": "C:\\Users\\xandy\\OneDrive\\Desktop\\trabalho\\rede-petri\\Transicao.cs",
               "RelativeToolTip": "Transicao.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAADwv2IAAAAAAAAA",
+              "ViewState": "AQIAADcAAAAAAAAAAADwv0QAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-30T00:36:16.165Z",
               "EditorCaption": ""
