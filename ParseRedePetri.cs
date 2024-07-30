@@ -13,7 +13,9 @@ namespace RedePetriSimulacao
             RedePetri redePetri = new RedePetri();
             Dictionary<string, string> lugarIds = new Dictionary<string, string>();
             Dictionary<string, string> transicaoIds = new Dictionary<string, string>();
+            Dictionary<string, string> jointIds = new Dictionary<string, string>();
 
+            // Parse lugares
             foreach (var lugarElement in doc.Descendants("place"))
             {
                 string id = lugarElement.Attribute("uuid").Value;
@@ -29,6 +31,7 @@ namespace RedePetriSimulacao
                 lugarIds[id] = nome;
             }
 
+            // Parse transições
             foreach (var transicaoElement in doc.Descendants("transition"))
             {
                 string id = transicaoElement.Attribute("uuid").Value;
@@ -69,25 +72,47 @@ namespace RedePetriSimulacao
                 redePetri.AdicionarTransicao(transicao);
             }
 
+            // Parse joints
+            foreach (var jointElement in doc.Descendants("joint"))
+            {
+                string id = jointElement.Attribute("uuid").Value;
+                jointIds[id] = id; // Usamos o próprio ID como valor pois não há um nome específico
+            }
+
+            // Parse arcos e conectar lugares, transições e joints
             foreach (var arco in doc.Descendants("arc"))
             {
                 string de = arco.Attribute("from").Value;
                 string para = arco.Attribute("to").Value;
 
-                if (transicaoIds.ContainsKey(de) && lugarIds.ContainsKey(para))
+                string origem = de;
+                string destino = para;
+
+                // Navega pelos joints até encontrar um lugar ou uma transição
+                while (jointIds.ContainsKey(origem))
                 {
-                    var nomeTransicao = transicaoIds[de];
-                    var nomeLugar = lugarIds[para];
+                    origem = doc.Descendants("arc").FirstOrDefault(a => a.Attribute("from").Value == origem)?.Attribute("to").Value;
+                }
+
+                while (jointIds.ContainsKey(destino))
+                {
+                    destino = doc.Descendants("arc").FirstOrDefault(a => a.Attribute("to").Value == destino)?.Attribute("from").Value;
+                }
+
+                if (transicaoIds.ContainsKey(origem) && lugarIds.ContainsKey(destino))
+                {
+                    var nomeTransicao = transicaoIds[origem];
+                    var nomeLugar = lugarIds[destino];
                     var transicao = redePetri.Transicoes.FirstOrDefault(t => t.Nome == nomeTransicao);
                     if (transicao != null)
                     {
                         transicao.PosCondicoes[nomeLugar] = 1; // Assumindo peso 1 para simplicidade
                     }
                 }
-                else if (lugarIds.ContainsKey(de) && transicaoIds.ContainsKey(para))
+                else if (lugarIds.ContainsKey(origem) && transicaoIds.ContainsKey(destino))
                 {
-                    var nomeTransicao = transicaoIds[para];
-                    var nomeLugar = lugarIds[de];
+                    var nomeTransicao = transicaoIds[destino];
+                    var nomeLugar = lugarIds[origem];
                     var transicao = redePetri.Transicoes.FirstOrDefault(t => t.Nome == nomeTransicao);
                     if (transicao != null)
                     {
