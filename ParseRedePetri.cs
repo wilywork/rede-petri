@@ -21,16 +21,8 @@ namespace RedePetriSimulacao
                                    .FirstOrDefault(p => p.Attribute("id").Value == "default.marking")
                                    ?.Attribute("marking").Value);
 
-                if (nome == "Passageiro_A" || nome == "Passageiro_B")
-                {
-                    Lugar lugar = new Lugar(nome, marcadores, 5, () => Console.WriteLine($"Avião decolando com 5 passageiros de {nome}!"));
-                    redePetri.AdicionarLugar(lugar);
-                }
-                else
-                {
-                    Lugar lugar = new Lugar(nome, marcadores);
-                    redePetri.AdicionarLugar(lugar);
-                }
+                Lugar lugar = new Lugar(nome, marcadores);
+                redePetri.AdicionarLugar(lugar);
             }
 
             foreach (var transicaoElement in doc.Descendants("transition"))
@@ -73,6 +65,34 @@ namespace RedePetriSimulacao
                             transicao.PreCondicoes[nomeLugar] = 1; // Assumindo peso 1 para simplicidade
                         }
                     }
+                }
+
+                var markingUpdateElement = transicaoElement.Element("properties")
+                                .Elements("property")
+                                .FirstOrDefault(p => p.Attribute("id").Value == "11.default.markingUpdate");
+
+                if (markingUpdateElement != null)
+                {
+                    var updates = markingUpdateElement.Attribute("marking-update").Value.Split(';');
+                    foreach (var update in updates)
+                    {
+                        var partes = update.Split('=');
+                        if (partes.Length > 1)
+                        {
+                            var lugar = partes[0].Trim();
+                            var valor = partes[1].Trim();
+                            transicao.MarkingUpdates[lugar] = update;
+                        }
+                    }
+                }
+
+                var enablingFunctionElement = transicaoElement.Element("properties")
+                                .Elements("property")
+                                .FirstOrDefault(p => p.Attribute("id").Value == "10.default.enablingFunction");
+
+                if (enablingFunctionElement != null)
+                {
+                    transicao.EnablingFunction = enablingFunctionElement.Attribute("enabling-function").Value;
                 }
 
                 redePetri.AdicionarTransicao(transicao);

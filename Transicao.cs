@@ -9,6 +9,8 @@ namespace RedePetriSimulacao
         public string Nome { get; set; }
         public Dictionary<string, int> PreCondicoes { get; set; }
         public Dictionary<string, int> PosCondicoes { get; set; }
+        public Dictionary<string, string> MarkingUpdates { get; set; }
+        public string EnablingFunction { get; set; }
         private static readonly object lockObj = new object();
 
         public Transicao(string nome)
@@ -16,33 +18,47 @@ namespace RedePetriSimulacao
             Nome = nome;
             PreCondicoes = new Dictionary<string, int>();
             PosCondicoes = new Dictionary<string, int>();
+            MarkingUpdates = new Dictionary<string, string>();
+            EnablingFunction = string.Empty;
         }
 
         public bool PodeDisparar(Dictionary<string, Lugar> lugares)
         {
             lock (lockObj)
             {
-                if (PreCondicoes.Count > 0)
+                if (!string.IsNullOrEmpty(EnablingFunction))
                 {
-                    foreach (var preCondicao in PreCondicoes)
+                    if (!AvaliarEnablingFunction(lugares))
                     {
-                        //Console.WriteLine($"PodeDisparar {preCondicao.Key} = {lugares[preCondicao.Key].Marcadores} < {preCondicao.Value} ? {!(lugares[preCondicao.Key].Marcadores == 0 || lugares[preCondicao.Key].Marcadores <= preCondicao.Value)} ");
-                        if (lugares[preCondicao.Key].Marcadores == 0 || lugares[preCondicao.Key].Marcadores <= preCondicao.Value)
-                        {
-                            return false;
-                        }
-
+                        return false;
                     }
-                    //Console.WriteLine($"!!!!!!!!!PodeDisparar true");
-                    return true;
-                }
-                else
-                {
-                    // Console.WriteLine($"PodeDisparar true");
-                    return true;
                 }
 
+                foreach (var preCondicao in PreCondicoes)
+                {
+                    if (lugares[preCondicao.Key].Marcadores < preCondicao.Value)
+                    {
+                        return false;
+                    }
+                }
+                return true;
             }
+        }
+
+        private bool AvaliarEnablingFunction(Dictionary<string, Lugar> lugares)
+        {
+            // Simplesmente verificando a condição: Passageiro_B >= 5
+            // Adicione mais lógica aqui para lidar com condições mais complexas
+            if (EnablingFunction.Contains(">="))
+            {
+                var partes = EnablingFunction.Split(new string[] { ">=" }, StringSplitOptions.None);
+                var lugar = partes[0].Trim();
+                var valor = int.Parse(partes[1].Trim());
+
+                return lugares[lugar].Marcadores >= valor;
+            }
+
+            return true;
         }
 
         public void Disparar(Dictionary<string, Lugar> lugares)
@@ -63,17 +79,19 @@ namespace RedePetriSimulacao
                         lugares[posCondicao.Key].AdicionarMarcadores(posCondicao.Value);
                     }
 
-                    Console.WriteLine($"Transição {Nome} disparada.");
+                    // Aplicar marking-updates
+                    foreach (var update in MarkingUpdates)
+                    {
+                        var partes = update.Value.Split('=');
+                        if (partes.Length > 1)
+                        {
+                            var lugar = partes[0].Trim();
+                            var valor = int.Parse(partes[1].Trim());
+                            lugares[lugar].Marcadores = valor;
+                        }
+                    }
 
-                    //// Lógica específica para decolagem de avião
-                    //if (Nome.StartsWith("Decolar_"))
-                    //{
-                    //    var lugarPassageiros = Nome.EndsWith("A") ? "Passageiro_A" : "Passageiro_B";
-                    //    var pistaVaga = Nome.EndsWith("A") ? "Pista_vaga_A" : "Pista_vaga_B";
-                    //    lugares[lugarPassageiros].ZerarMarcadores();
-                    //    lugares[pistaVaga].AdicionarMarcadores(1);
-                    //    Console.WriteLine($"Avião decolou de {Nome}, passageiros de {lugarPassageiros} foram zerados e a {pistaVaga} foi liberada.");
-                    //}
+                    Console.WriteLine($"Transição {Nome} disparada.");
                 }
             }
         }
