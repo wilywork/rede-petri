@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tpn-editor>
+  <tpn-entities>
+    <joint uuid="163211cd-7b79-4192-bd02-01d4cc180b68" x="220" y="130">
+      <features/>
+      <properties/>
+    </joint>
+    <joint uuid="1b432c09-2e50-42aa-899d-06b4c9bec72b" x="9" y="164">
+      <features/>
+      <properties/>
+    </joint>
+    <joint uuid="5767f5be-e235-4215-9dbe-cd9845a74365" x="709" y="-3">
+      <features/>
+      <properties/>
+    </joint>
+    <joint uuid="62dd90cd-2656-4d82-a9f7-ac35781e0e1a" x="220" y="18">
+      <features/>
+      <properties/>
+    </joint>
+    <joint uuid="6c10bc9d-6c12-466f-a887-ac8aca91ce23" x="478" y="18">
+      <features/>
+      <properties/>
+    </joint>
+    <joint uuid="72290446-f9de-461d-9aaa-194d87abf1cf" x="478" y="144">
+      <features/>
+      <properties/>
+    </joint>
+    <place uuid="00f926fb-ebda-4e47-8743-c23c963dce1d" x="478" y="74">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Pista_vaga_B" satellite-x="542" satellite-y="74"/>
+        <property id="default.marking" marking="0"/>
+      </properties>
+    </place>
+    <place uuid="4ac6b5b4-265a-46ac-9ec5-245b912e1e23" x="9" y="-2">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Passageiro_A" satellite-x="9" satellite-y="25"/>
+        <property id="default.marking" marking="0"/>
+      </properties>
+    </place>
+    <place uuid="64b359e4-ebf3-454b-9f8c-0f99e07c26c7" x="946" y="164">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Pessoa_B" satellite-x="944" satellite-y="193"/>
+        <property id="default.marking" marking="200"/>
+      </properties>
+    </place>
+    <place uuid="7650b401-3030-4a25-8a82-5d7cabd87de9" x="-222" y="-3">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Pessoa_A" satellite-x="-222" satellite-y="27"/>
+        <property id="default.marking" marking="200"/>
+      </properties>
+    </place>
+    <place uuid="7c22418f-d54a-481d-8c86-78320b097aa4" x="709" y="74">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Aviao_disponivel_B" satellite-x="789" satellite-y="70"/>
+        <property id="default.marking" marking="1"/>
+      </properties>
+    </place>
+    <place uuid="84ce176d-4f44-4373-b912-e7f93cadd721" x="709" y="164">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Passageiro_B" satellite-x="706" satellite-y="193"/>
+        <property id="default.marking" marking="0"/>
+      </properties>
+    </place>
+    <place uuid="a925200f-ca58-4c67-a85d-5ddbd096ce4e" x="220" y="74">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Pista_vaga_A" satellite-x="155" satellite-y="75"/>
+        <property id="default.marking" marking="0"/>
+      </properties>
+    </place>
+    <place uuid="a9f548f9-231b-42b7-a56e-460be70a0a24" x="9" y="74">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Aviao_disponivel_A" satellite-x="-73" satellite-y="74"/>
+        <property id="default.marking" marking="1"/>
+      </properties>
+    </place>
+    <place uuid="bd92b6b9-ef8b-4c4a-899e-05a5eeaafc21" x="346" y="164">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Viajando_B" satellite-x="348" satellite-y="193"/>
+        <property id="default.marking" marking="0"/>
+      </properties>
+    </place>
+    <place uuid="d7175d3b-50a8-4ce3-9dc6-46070405bd74" x="346" y="-3">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Viajando_A" satellite-x="349" satellite-y="26"/>
+        <property id="default.marking" marking="0"/>
+      </properties>
+    </place>
+    <transition rotation-angle="0.0" uuid="04f7be8b-2a1e-4448-8a7f-bffa4282ea5f" x="-139" y="-3">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Pagar_passagem_A" satellite-x="-134" satellite-y="-33"/>
+        <property enabling-function="" id="10.default.enablingFunction"/>
+        <property id="11.default.markingUpdate" marking-update=""/>
+        <property id="12.default.resetTransitions" reset-transitions=""/>
+      </properties>
+    </transition>
+    <transition rotation-angle="0.0" uuid="75f55ded-7da0-4a2f-8daa-8f5b5db13ddd" x="559" y="164">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Decolar_B" satellite-x="560" satellite-y="191"/>
+        <property enabling-function="Passageiro_B &gt;=5" id="10.default.enablingFunction"/>
+        <property id="11.default.markingUpdate" marking-update="Passageiro_B =0;"/>
+        <property id="12.default.resetTransitions" reset-transitions=""/>
+      </properties>
+    </transition>
+    <transition rotation-angle="0.0" uuid="9e31568a-9fed-4f17-baf7-5b96f89ae1c1" x="156" y="164">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Pousar_B" satellite-x="158" satellite-y="189"/>
+        <property enabling-function="" id="10.default.enablingFunction"/>
+        <property id="11.default.markingUpdate" marking-update=""/>
+        <property id="12.default.resetTransitions" reset-transitions=""/>
+      </properties>
+    </transition>
+    <transition rotation-angle="0.0" uuid="b90aa5d7-124f-4a18-93d4-84bb9e41cdef" x="858" y="164">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Pagar_passagem_B" satellite-x="866" satellite-y="136"/>
+        <property enabling-function="" id="10.default.enablingFunction"/>
+        <property id="11.default.markingUpdate" marking-update=""/>
+        <property id="12.default.resetTransitions" reset-transitions=""/>
+      </properties>
+    </transition>
+    <transition rotation-angle="0.0" uuid="bff18ada-f8bd-4907-85a3-58476c4fed74" x="156" y="-3">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Decolar_A" satellite-x="156" satellite-y="-29"/>
+        <property enabling-function="Passageiro_A &gt;=5" id="10.default.enablingFunction"/>
+        <property id="11.default.markingUpdate" marking-update="Passageiro_A = 0;"/>
+        <property id="12.default.resetTransitions" reset-transitions=""/>
+      </properties>
+    </transition>
+    <transition rotation-angle="0.0" uuid="ec5a5525-15ff-476b-bc5a-02a4841d9069" x="559" y="-3">
+      <features/>
+      <properties>
+        <property id="0.default.name" name="Pousar_A" satellite-x="560" satellite-y="-28"/>
+        <property enabling-function="" id="10.default.enablingFunction"/>
+        <property id="11.default.markingUpdate" marking-update=""/>
+        <property id="12.default.resetTransitions" reset-transitions=""/>
+      </properties>
+    </transition>
+    <note height="100" uuid="3e29c3b9-5a5d-4953-88a4-7bf6f2585062" width="137" x="731" y="-46">
+      <features/>
+      <properties/>
+      Aeroporto_B
+
+    </note>
+    <note height="102" uuid="8cb0dbc1-0c14-4f9f-ae32-9a1eb9baccfb" width="157" x="-152" y="88">
+      <features/>
+      <properties/>
+       Aeroporto_A
+    </note>
+    <arc from="04f7be8b-2a1e-4448-8a7f-bffa4282ea5f" to="4ac6b5b4-265a-46ac-9ec5-245b912e1e23" uuid="09e7fa95-9fcf-44a6-9df5-ee0e20127b2e">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="75f55ded-7da0-4a2f-8daa-8f5b5db13ddd" to="72290446-f9de-461d-9aaa-194d87abf1cf" uuid="0cf5e142-257a-4e67-b2f3-1b134d7b74ab">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="84ce176d-4f44-4373-b912-e7f93cadd721" to="75f55ded-7da0-4a2f-8daa-8f5b5db13ddd" uuid="10cd89b5-e92c-4493-806a-4e4a6c810aea">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="4ac6b5b4-265a-46ac-9ec5-245b912e1e23" to="bff18ada-f8bd-4907-85a3-58476c4fed74" uuid="1dbdcd44-525a-4e1c-910e-44c6a805ea0a">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="1b432c09-2e50-42aa-899d-06b4c9bec72b" to="a9f548f9-231b-42b7-a56e-460be70a0a24" uuid="23b9ebeb-e22c-4d00-baaf-df4c4a9c4564">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="5767f5be-e235-4215-9dbe-cd9845a74365" to="7c22418f-d54a-481d-8c86-78320b097aa4" uuid="2c2c0793-3334-4973-a188-20bf52208d63">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="00f926fb-ebda-4e47-8743-c23c963dce1d" to="6c10bc9d-6c12-466f-a887-ac8aca91ce23" uuid="30536860-226a-4265-a58b-948fd7487691">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="ec5a5525-15ff-476b-bc5a-02a4841d9069" to="5767f5be-e235-4215-9dbe-cd9845a74365" uuid="3d87977b-7d82-4553-b889-afe606e8056e">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="9e31568a-9fed-4f17-baf7-5b96f89ae1c1" to="1b432c09-2e50-42aa-899d-06b4c9bec72b" uuid="474d3b8f-2c03-4b9b-8525-a16c672de926">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="6c10bc9d-6c12-466f-a887-ac8aca91ce23" to="ec5a5525-15ff-476b-bc5a-02a4841d9069" uuid="51a1e2c9-b104-4bf6-82c5-7c73195981f7">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="a9f548f9-231b-42b7-a56e-460be70a0a24" to="bff18ada-f8bd-4907-85a3-58476c4fed74" uuid="6e4ddee9-23fd-44c7-9b67-c3006204881c">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="7650b401-3030-4a25-8a82-5d7cabd87de9" to="04f7be8b-2a1e-4448-8a7f-bffa4282ea5f" uuid="734105f9-fa71-402c-9168-956549734fad">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="a925200f-ca58-4c67-a85d-5ddbd096ce4e" to="163211cd-7b79-4192-bd02-01d4cc180b68" uuid="76ae95fd-a731-430b-bff0-8b77e5652c60">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="72290446-f9de-461d-9aaa-194d87abf1cf" to="00f926fb-ebda-4e47-8743-c23c963dce1d" uuid="88357c42-1a8b-4e68-8b6f-45ba82d3c17f">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="bd92b6b9-ef8b-4c4a-899e-05a5eeaafc21" to="9e31568a-9fed-4f17-baf7-5b96f89ae1c1" uuid="8848d6ea-b566-4202-8cd4-d91fad66c3f4">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="75f55ded-7da0-4a2f-8daa-8f5b5db13ddd" to="bd92b6b9-ef8b-4c4a-899e-05a5eeaafc21" uuid="8e80ba1e-c40d-4412-8955-1707434c976f">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="bff18ada-f8bd-4907-85a3-58476c4fed74" to="d7175d3b-50a8-4ce3-9dc6-46070405bd74" uuid="91d527af-cdce-4b83-9699-4401b463102c">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="bff18ada-f8bd-4907-85a3-58476c4fed74" to="62dd90cd-2656-4d82-a9f7-ac35781e0e1a" uuid="9e5df5b5-a0f0-4e59-9926-c048ad82c6a3">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="4ac6b5b4-265a-46ac-9ec5-245b912e1e23" to="bff18ada-f8bd-4907-85a3-58476c4fed74" uuid="9e9dc0c9-8765-401e-ba56-e6b3c2e4c90f">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="d7175d3b-50a8-4ce3-9dc6-46070405bd74" to="ec5a5525-15ff-476b-bc5a-02a4841d9069" uuid="ab174487-b5e8-4870-8e1b-1fee8e0c91c6">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="7c22418f-d54a-481d-8c86-78320b097aa4" to="75f55ded-7da0-4a2f-8daa-8f5b5db13ddd" uuid="b008f15e-088c-4ad6-9138-99cfe94f369c">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="163211cd-7b79-4192-bd02-01d4cc180b68" to="9e31568a-9fed-4f17-baf7-5b96f89ae1c1" uuid="b0fc6340-26df-421e-82a7-ddb66990a6d6">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="62dd90cd-2656-4d82-a9f7-ac35781e0e1a" to="a925200f-ca58-4c67-a85d-5ddbd096ce4e" uuid="ba80ed52-c80c-46c4-9f57-2aeefba75780">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="b90aa5d7-124f-4a18-93d4-84bb9e41cdef" to="84ce176d-4f44-4373-b912-e7f93cadd721" uuid="bcfa56cd-087b-4651-afdd-428125df128f">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="64b359e4-ebf3-454b-9f8c-0f99e07c26c7" to="b90aa5d7-124f-4a18-93d4-84bb9e41cdef" uuid="dfd900b4-b186-43b4-917c-c2f5924bc8bc">
+      <features/>
+      <properties/>
+    </arc>
+    <arc from="4ac6b5b4-265a-46ac-9ec5-245b912e1e23" to="bff18ada-f8bd-4907-85a3-58476c4fed74" uuid="f8e866a0-4f57-4d22-a23e-ca81202ea5da">
+      <features/>
+      <properties/>
+    </arc>
+  </tpn-entities>
+</tpn-editor>
