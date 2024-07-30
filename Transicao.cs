@@ -74,6 +74,7 @@ namespace RedePetriSimulacao
                     // Adicionar marcadores nas pós-condições
                     foreach (var posCondicao in PosCondicoes)
                     {
+                        Console.WriteLine($"AdicionarMarcadores: {posCondicao.Key}, {posCondicao.Value} ---------------------------------.");
                         lugares[posCondicao.Key].AdicionarMarcadores(posCondicao.Value);
                     }
 
@@ -89,7 +90,7 @@ namespace RedePetriSimulacao
                         }
                     }
 
-                    Console.WriteLine($"Transição {Nome} disparada.");
+                    Console.WriteLine($">>>>>> Transição {Nome} disparada.");
 
                     // Lógica específica para pouso de avião
                     if (Nome.StartsWith("Pousar_"))

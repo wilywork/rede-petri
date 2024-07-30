@@ -51,7 +51,7 @@ namespace RedePetriSimulacao
                 Console.WriteLine($"================= Estado após iteração {i + 1} ==================");
                 foreach (var lugar in Lugares)
                 {
-                    Console.WriteLine($"{lugar.Key}: {lugar.Value.Marcadores} marcadores");
+                    Console.WriteLine($"{lugar.Key}: {lugar.Value.Marcadores}");
                 }
             }
         }
