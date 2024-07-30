@@ -1,7 +1,0 @@
-C:\Users\xandy\source\repos\ConsoleApp2\obj\Debug\RedePetriSimulacao.csproj.AssemblyReference.cache
-C:\Users\xandy\source\repos\ConsoleApp2\obj\Debug\RedePetriSimulacao.csproj.CoreCompileInputs.cache
-C:\Users\xandy\source\repos\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
-C:\Users\xandy\source\repos\ConsoleApp2\bin\Debug\ConsoleApp2.exe
-C:\Users\xandy\source\repos\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
-C:\Users\xandy\source\repos\ConsoleApp2\obj\Debug\ConsoleApp2.exe
-C:\Users\xandy\source\repos\ConsoleApp2\obj\Debug\ConsoleApp2.pdb

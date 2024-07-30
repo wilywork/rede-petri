@@ -26,18 +26,22 @@ namespace RedePetriSimulacao
                 {
                     foreach (var preCondicao in PreCondicoes)
                     {
-                        Console.WriteLine($"PodeDisparar {preCondicao.Key} = {lugares[preCondicao.Key].Marcadores} < {preCondicao.Value} ? {!(lugares[preCondicao.Key].Marcadores == 0 && lugares[preCondicao.Key].Marcadores < preCondicao.Value)} ");
-                        if (lugares[preCondicao.Key].Marcadores == 0 && lugares[preCondicao.Key].Marcadores < preCondicao.Value)
+                        //Console.WriteLine($"PodeDisparar {preCondicao.Key} = {lugares[preCondicao.Key].Marcadores} < {preCondicao.Value} ? {!(lugares[preCondicao.Key].Marcadores == 0 || lugares[preCondicao.Key].Marcadores <= preCondicao.Value)} ");
+                        if (lugares[preCondicao.Key].Marcadores == 0 || lugares[preCondicao.Key].Marcadores <= preCondicao.Value)
+                        {
                             return false;
+                        }
+
                     }
-                    Console.WriteLine($"!!!!!!!!!PodeDisparar true");
-                    return true;
-                } else
-                {
-                    Console.WriteLine($"PodeDisparar true");
+                    //Console.WriteLine($"!!!!!!!!!PodeDisparar true");
                     return true;
                 }
-           
+                else
+                {
+                    // Console.WriteLine($"PodeDisparar true");
+                    return true;
+                }
+
             }
         }
 
