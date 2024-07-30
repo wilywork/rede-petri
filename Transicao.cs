@@ -78,7 +78,7 @@ namespace RedePetriSimulacao
                         lugares[posCondicao.Key].AdicionarMarcadores(posCondicao.Value);
                     }
 
-                    // Aplicar marking-updates
+                    // Aplicar updates
                     foreach (var update in MarkingUpdates)
                     {
                         var partes = update.Value.Split('=');
@@ -90,15 +90,7 @@ namespace RedePetriSimulacao
                         }
                     }
 
-                    Console.WriteLine($">>>>>> Transição {Nome} disparada.");
-
-                    // Lógica específica para pouso de avião
-                    if (Nome.StartsWith("Pousar_"))
-                    {
-                        var aviaoDisponivel = Nome.EndsWith("A") ? "Aviao_disponivel_A" : "Aviao_disponivel_B";
-                        lugares[aviaoDisponivel].AdicionarMarcadores(1);
-                        Console.WriteLine($"Avião pousou de {Nome}, {aviaoDisponivel} atualizado.");
-                    }
+                    Console.WriteLine($"Transição {Nome} disparada.");
                 }
             }
         }

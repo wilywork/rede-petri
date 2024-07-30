@@ -85,19 +85,9 @@ namespace RedePetriSimulacao
                 string de = arco.Attribute("from").Value;
                 string para = arco.Attribute("to").Value;
 
-                string origem = de;
-                string destino = para;
-
-                // Navega pelos joints até encontrar um lugar ou uma transição
-                while (jointIds.ContainsKey(origem))
-                {
-                    origem = doc.Descendants("arc").FirstOrDefault(a => a.Attribute("from").Value == origem)?.Attribute("to").Value;
-                }
-
-                while (jointIds.ContainsKey(destino))
-                {
-                    destino = doc.Descendants("arc").FirstOrDefault(a => a.Attribute("to").Value == destino)?.Attribute("from").Value;
-                }
+                // Resolver a origem e destino, lidando com joints
+                string origem = ResolverOrigemDestino(doc, de, jointIds);
+                string destino = ResolverOrigemDestino(doc, para, jointIds);
 
                 if (transicaoIds.ContainsKey(origem) && lugarIds.ContainsKey(destino))
                 {
@@ -122,6 +112,15 @@ namespace RedePetriSimulacao
             }
 
             return redePetri;
+        }
+
+        private static string ResolverOrigemDestino(XDocument doc, string id, Dictionary<string, string> jointIds)
+        {
+            while (jointIds.ContainsKey(id))
+            {
+                id = doc.Descendants("arc").FirstOrDefault(a => a.Attribute("from").Value == id)?.Attribute("to").Value;
+            }
+            return id;
         }
     }
 }
