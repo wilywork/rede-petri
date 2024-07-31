@@ -96,7 +96,7 @@ namespace RedePetriSimulacao
                     var transicao = redePetri.Transicoes.FirstOrDefault(t => t.Nome == nomeTransicao);
                     if (transicao != null)
                     {
-                        transicao.PosCondicoes[nomeLugar] = 1; // Assumindo peso 1 para simplicidade
+                        transicao.PosCondicoes[nomeLugar] = 1; // Assumindo peso 1
                     }
                 }
                 else if (lugarIds.ContainsKey(origem) && transicaoIds.ContainsKey(destino))
@@ -106,7 +106,7 @@ namespace RedePetriSimulacao
                     var transicao = redePetri.Transicoes.FirstOrDefault(t => t.Nome == nomeTransicao);
                     if (transicao != null)
                     {
-                        transicao.PreCondicoes[nomeLugar] = 1; // Assumindo peso 1 para simplicidade
+                        transicao.PreCondicoes[nomeLugar] = 1; // Assumindo peso 1
                     }
                 }
             }
